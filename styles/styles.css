@@ -135,3 +135,61 @@ body {
     margin-bottom: 0;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+/* popup styles */
+.popup-content {
+    width: 200px; /* Set the width */
+    height: auto; /* Set the height */
+    border: 4px solid #534545; /* Border for container */
+    border-radius: 20px;
+}
+/* center popup */
+.popup {
+    display: flex;
+    justify-content: center; /* Aligns items along the main axis */
+    align-items: center; /* Aligns items along the cross axis */
+}
+/* final score styles*/
+.finalscores {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+.finalscores div {
+    padding: 10px;
+    text-align: center;
+}
+.finalscores p {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-style: oblique;
+    font-size: large;
+}
+.finalscores h2 {
+    margin-top: 0;
+    color: #fb2525;
+    margin-bottom: 0;
+}
+/* closebutton styles */
+.closebtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+/* Change button color when hovered over */
+.closebtn:hover {
+    background-color: #9fc4a1;
+}
+.btnflex {
+    display: flex;
+    justify-content: center; /* Aligns items along the main axis */
+    align-items: center; /* Aligns items along the cross axis */
+    margin-bottom: 10px;
+}
