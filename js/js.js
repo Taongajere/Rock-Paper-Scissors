@@ -18,7 +18,6 @@ const scissorsbtn = document.getElementById('scissorsbtn');
 const paperbtn = document.getElementById('paperbtn');
 
 // function that will run after player selection
-
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         return "Draw";
@@ -44,7 +43,6 @@ function playRound(playerSelection, computerSelection) {
         return "Enter either rock, paper, or scissors";
     }
 }
-
 
 
 // event listener for each button
