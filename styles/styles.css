@@ -1,0 +1,73 @@
+body {
+    background-color: #2f4d97;
+}
+
+.ui{
+    border: 4px solid #534545; /* Border for container */
+    border-radius: 20px;
+}
+
+/* title styles */
+.title {
+    color: rgb(30, 19, 19);
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* flex buttons */
+.container {
+    display: flex;
+    justify-content: center; /* Aligns items along the main axis */
+    align-items: center; /* Aligns items along the cross axis */
+    margin-top: 100px;
+}
+
+.container div {
+    padding: 10px; /* Padding for items */
+}
+
+/* button style */
+/* Target the button using its class */
+.btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+/* Change button color when hovered over */
+.btn:hover {
+    background-color: #9fc4a1;
+}
+
+
+/* restart button styles */
+#restart {
+    background-color: #534545;
+    color: aquamarine;
+    padding: 10px 50px;
+    border: none;
+    border-bottom: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.5s ease;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+#restart:hover {
+    background-color: #fb2525;
+}
+
+
+.restart {
+    display: flex;
+    justify-content: center; /* Aligns items along the main axis */
+    align-items: center; /* Aligns items along the cross axis */
+}
+
+.restart div {
+    padding: 10px; /* Padding for items */
+}
