@@ -1,66 +1,79 @@
 
-const choices = ["Rock", "Paper", "scissors"]
+const choices = ["rock", "paper", "scissors"]
 
 // get computer choice function
 function getComputerSelection (Choices){
     // the Math.random turns the random index into a whole number
     const randomIndex = Math.floor(Math.random() * choices.length);
-    let computerSelection = choices[randomIndex].toLowerCase();
-
-    return computerSelection
+    return choices[randomIndex].toLowerCase();
 }
 
-const computerSelection = getComputerSelection (choices)
 
-//getting reference button
-const rockbtn = document.getElementById('rockbtn');
-const scissorsbtn = document.getElementById('scissorsbtn');
-const paperbtn = document.getElementById('paperbtn');
+// getting playerSelction
+
+rockbtn.addEventListener ('click', function (){
+    game('rock'); 
+});
+paperbtn.addEventListener ('click', function () {
+    game('paper');
+});
+scissorsbtn.addEventListener ('click', function () {
+    game('scissors');
+});
+
+
 
 // function that will run after player selection
-function playRound(playerSelection, computerSelection) {
+let computerScore = 0;
+let playerScore = 0;
+let roundNumber = 0;
+
+
+function playRound(playerSelection) {
+    const computerSelection = getComputerSelection (choices)
+
+    console.log(`Round ${roundNumber + 1}:`);
+    console.log(`Player chooses ${playerSelection}`);
+    console.log(`Computer chooses ${computerSelection}`);
+
     if (playerSelection === computerSelection) {
-        return "Draw";
-    } else if (playerSelection === 'rock') {
-        if (computerSelection === 'scissors') {
-            return "Win, Rock beats scissors";
-        } else if (computerSelection === 'paper') {
-            return "Lose, Paper covers Rock";
+        result = "draw"
+    } else if (
+        (playerSelection === 'rock' && computerSelection === 'scissors') ||
+        (playerSelection === 'scissors' && computerSelection === 'paper') ||
+        (playerSelection === 'paper' && computerSelection === 'rock')
+        ) {
+            result = 'win'
+            playerScore++;
+        } else {
+            result = "lose"
+            computerScore++;
         }
-    } else if (playerSelection === 'scissors') {
-        if (computerSelection === 'paper') {
-            return "Win, Scissors cuts paper";
-        } else if (computerSelection === 'rock') {
-            return "Lose, Rock smashes scissors";
+    
+    console.log(result);
+}
+
+
+//game function
+function game (playerSelection) {
+    playRound(playerSelection)
+
+    roundNumber++; //increase roundNumber evertime game is called
+
+    if (roundNumber < 3) {
+        console.log('\nNext Round')
+    }  else {
+        // End the game after 5 rounds
+        console.log("\nGame over!");
+        console.log(`Player score: ${playerScore}, Computer score: ${computerScore}`);
+        if (playerScore > computerScore) {
+            console.log("Player wins the game!");
+        } else if (playerScore < computerScore) {
+            console.log("Computer wins the game!");
+        } else {
+            console.log("It's a tie!");
         }
-    } else if (playerSelection === 'paper') {
-        if (computerSelection === 'rock') {
-            return "Win, Paper covers rock";
-        } else if (computerSelection === 'scissors') {
-            return "Lose, Scissors cuts paper";
-        }
-    } else {
-        return "Enter either rock, paper, or scissors";
     }
 }
 
-
-// event listener for each button
-let playerSelection; // declair playerSelection
-
-rockbtn.addEventListener ('click', function (){
-    playerSelection = 'rock';
-    const result = playRound ('rock', computerSelection)
-    console.log(result);
-});
-paperbtn.addEventListener ('click', function () {
-    playerSelection = 'paper'
-    const result = playRound ('paper', computerSelection)
-    console.log(result);
-});
-scissorsbtn.addEventListener ('click', function () {
-    playerSelection = 'scissors'
-    const result = playRound ('scissors', computerSelection)
-    console.log(result);
-});
 
