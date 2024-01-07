@@ -26,13 +26,13 @@ scissorsbtn.addEventListener ('click', function () {
 // function that will run after player selection
 let computerScore = 0;
 let playerScore = 0;
-let roundNumber = 0;
+let roundNumber = 1;
 
 
 function playRound(playerSelection) {
     const computerSelection = getComputerSelection (choices)
 
-    console.log(`Round ${roundNumber + 1}:`);
+    console.log(`Round ${roundNumber }:`);
     console.log(`Player chooses ${playerSelection}`);
     console.log(`Computer chooses ${computerSelection}`);
 
@@ -51,7 +51,10 @@ function playRound(playerSelection) {
         }
     
     console.log(result);
-}
+    document.getElementById('computerScore').textContent = computerScore;
+    document.getElementById('playerScore').textContent = playerScore;
+    document.getElementById('round').textContent = roundNumber;
+ }
 
 
 //game function
@@ -59,13 +62,13 @@ function game (playerSelection) {
     playRound(playerSelection)
 
     roundNumber++; //increase roundNumber evertime game is called
-
-    if (roundNumber < 3) {
+    if (roundNumber <= 3) {
         console.log('\nNext Round')
     }  else {
-        // End the game after 5 rounds
+        // End the game after 3 rounds
         console.log("\nGame over!");
         console.log(`Player score: ${playerScore}, Computer score: ${computerScore}`);
+        resetGame(); // calls the function reset game
         if (playerScore > computerScore) {
             console.log("Player wins the game!");
         } else if (playerScore < computerScore) {
@@ -76,4 +79,14 @@ function game (playerSelection) {
     }
 }
 
+
+// reseting game
+function resetGame () {
+    computerScore = 0;
+    playerScore = 0;
+    roundNumber = 0;
+    document.getElementById('computerScore').textContent = 0;
+    document.getElementById('playerScore').textContent = 0;
+    document.getElementById('round').textContent = 0;
+}
 
