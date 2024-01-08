@@ -68,7 +68,6 @@ function game (playerSelection) {
         // End the game after 3 rounds
         console.log("\nGame over!");
         console.log(`Player score: ${playerScore}, Computer score: ${computerScore}`);
-        resetGame(); // calls the function reset game
         if (playerScore > computerScore) {
             console.log("Player wins the game!");
         } else if (playerScore < computerScore) {
@@ -76,6 +75,8 @@ function game (playerSelection) {
         } else {
             console.log("It's a tie!");
         }
+        openPopup();
+        resetGame(); // calls the function reset game
     }
 }
 
@@ -88,5 +89,17 @@ function resetGame () {
     document.getElementById('computerScore').textContent = 0;
     document.getElementById('playerScore').textContent = 0;
     document.getElementById('round').textContent = 0;
+    
 }
 
+// popup functions
+function openPopup() {
+    document.getElementById("popup").style.display = "block";
+    document.getElementById("finalcomputerScore").textContent = computerScore;
+    document.getElementById("finalplayerScore").textContent = playerScore;
+  }
+  
+  function closePopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+  
